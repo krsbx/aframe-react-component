@@ -1,7 +1,7 @@
 import React from 'react';
 import { Entity as AEntity } from 'aframe';
 import { Entity as _Entity } from '../utils/interface';
-import Primitive from './Primitive/Primitive';
+import Primitive from './primitive/Primitive';
 import { PRIMITIVE_TYPES } from '../utils/constant';
 
 const Entity = React.forwardRef<AEntity, _Entity>(({ ...props }, ref) => (
