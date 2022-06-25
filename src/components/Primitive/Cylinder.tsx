@@ -1,10 +1,10 @@
 import React from 'react';
-import { AEntity } from 'aframe';
+import { Entity as AEntity } from 'aframe';
 import Primitive from './Primitive';
 import { Cylinder } from '../../utils/interface';
 import { PRIMITIVE_TYPES } from '../../utils/constant';
 
-const Cylinder = React.forwardRef<typeof AEntity, Cylinder>(({ ...props }, ref) => (
+const Cylinder = React.forwardRef<AEntity, Cylinder>(({ ...props }, ref) => (
   <Primitive type={PRIMITIVE_TYPES.CYLINDER} {...props} ref={ref} />
 ));
 
