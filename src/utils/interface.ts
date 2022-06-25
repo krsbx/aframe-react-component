@@ -31,27 +31,46 @@ export type Animation = {
 
 export type Primitive = {
   color?: string;
+  depth?: number;
   material?: string;
   position?: Vector3 | FlatVector3 | string;
   scale?: Vector3 | FlatVector3 | string;
   rotation?: Vector3 | FlatVector3 | string;
   animation?: Animation | Animation[];
-  visible?: boolean;
-  type: string;
-  height?: number;
-  width?: number;
-  src?: string;
   fog?: boolean;
-  depth?: number;
+  height?: number;
+  metalness?: number;
+  repeat?: Vector2 | FlatVector2 | string;
+  roughness?: number;
+  'segments-depth'?: number;
   'segments-height'?: number;
   'segments-width'?: number;
+  shader?: string;
+  src?: string;
+  width?: number;
+  visible?: boolean;
+  type: string;
   children?: React.ReactNode;
+  wireframe?: boolean;
+  'wireframe-linewidth'?: number;
 };
 
 // Use this to extends any types that has rounded stuff
 export type Rounded = {
   'theta-start'?: number;
   'theta-length'?: number;
+};
+
+// Use this to extends any types that has lot of vertex
+export type Phis = {
+  'phi-start'?: number;
+  'phi-length'?: number;
+};
+
+// Use this to extends any types that has more segments
+export type Segments = {
+  'segment-phi'?: number;
+  'segment-theta'?: number;
 };
 
 // Use this to extends any types that has radius stuff
@@ -78,11 +97,32 @@ export type Cone = BasePrimitive &
 
 export type Cylinder = Cone;
 
+export type CurvedImage = Omit<Image, 'options'> &
+  Rounded & {
+    opacity?: number;
+    'open-ended'?: boolean;
+    radius?: number;
+    transparent?: boolean;
+  };
+
+export type Dodecahedron = Box &
+  Radiuses &
+  Rounded & {
+    'open-ended'?: boolean;
+    'segment-radial'?: number;
+  };
+
+export type Icosahedron = Omit<Dodecahedron, 'open-ended' | 'segment-radial'> & {
+  radius?: number;
+};
+
+export type Octahedron = Icosahedron;
+export type Tetrahedron = Icosahedron;
+
+export type GLTFModel = Box;
+
 export type Image = Omit<BasePrimitive, 'material'> & {
-  metalness?: number;
   options?: number;
-  repeat?: Vector2 | FlatVector2 | string;
-  roughness?: number;
   shader?: string;
   side?: string;
   transparent?: boolean;
@@ -90,12 +130,59 @@ export type Image = Omit<BasePrimitive, 'material'> & {
 
 export type Plane = Box;
 
-export type Sphere = Circle & {
-  'phi-start'?: number;
-  'phi-length'?: number;
+export type Ring = Box &
+  Rounded &
+  Segments & {
+    'radius-inner'?: number;
+    'radius-outer'?: number;
+  };
+
+export type Sky = Rounded &
+  Phis &
+  Pick<
+    Box,
+    | 'color'
+    | 'metalness'
+    | 'repeat'
+    | 'roughness'
+    | 'segments-height'
+    | 'segments-width'
+    | 'shader'
+    | 'src'
+    | 'children'
+  >;
+
+export type Sphere = Circle & Phis;
+
+export type Torus = Box & {
+  arc?: number;
+  radius?: number;
+  'radius-tubular'?: number;
+  'segment-radial'?: number;
+  'segment-tubular'?: number;
 };
 
-export type GLTFModel = Box;
+export type TorusKnot = Torus & {
+  p: number;
+  q: number;
+};
+
+export type Triangle = Box & {
+  'vertex-a'?: Vector3 | FlatVector3 | string;
+  'vertex-b'?: Vector3 | FlatVector3 | string;
+  'vertex-c'?: Vector3 | FlatVector3 | string;
+};
+
+export type Sound = {
+  autoplay?: boolean;
+  on?: string;
+  src?: string;
+  volume?: number;
+};
+
+export type Video = Omit<Image, 'options'> & {
+  opacity?: number;
+};
 
 export type Entity = Box & {
   geometry?: string;
@@ -149,13 +236,13 @@ export type Assets = {
   children: React.ReactNode;
 };
 
-export type Audio = {
+export type AudioAsset = {
   id: string;
   src: string;
   autoplay?: boolean;
 };
 
-export type Video = Audio;
+export type VideoAsset = AudioAsset;
 
 export type Item = {
   id: string;

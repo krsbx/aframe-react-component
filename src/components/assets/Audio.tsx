@@ -1,8 +1,8 @@
 import React from 'react';
 import { ANode } from 'aframe';
-import { Audio as _Audio } from '../../utils/interface';
+import { AudioAsset } from '../../utils/interface';
 
-const Audio = React.forwardRef<ANode, _Audio>(({ ...props }, ref) =>
+const Audio = React.forwardRef<ANode, AudioAsset>(({ ...props }, ref) =>
   React.createElement('audio', { ...props, ref })
 );
 
