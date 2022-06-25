@@ -1,9 +1,9 @@
 import React from 'react';
-import { AEntity } from 'aframe';
+import { Entity as AEntity } from 'aframe';
 import { Primitive } from '../../utils/interface';
 import { getAnimations, convertObjectToString } from '../../utils/common';
 
-const Primitive = React.forwardRef<typeof AEntity, Primitive>(
+const Primitive = React.forwardRef<AEntity, Primitive>(
   ({ type, animation, children, ...props }, ref) => {
     const animations = animation ? getAnimations(animation) : {};
 
