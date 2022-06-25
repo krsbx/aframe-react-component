@@ -143,3 +143,22 @@ export type Scene = {
   children?: React.ReactNode;
   colorSpace?: string;
 };
+
+export type Assets = {
+  timeout?: number;
+  children: React.ReactNode;
+};
+
+export type Audio = {
+  id: string;
+  src: string;
+  autoplay?: boolean;
+};
+
+export type Video = Audio;
+
+export type Item = {
+  id: string;
+  'response-type'?: string;
+  src: string;
+};
