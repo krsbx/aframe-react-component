@@ -1,9 +1,11 @@
 {
   "name": "aframe-react-component",
   "version": "0.1.0beta1a",
+  "main": "dist/index.js",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "build:prod": "tsc --project tsconfig.build.json",
     "preview": "vite preview",
     "prepare": "husky install"
   },
@@ -34,21 +36,21 @@
     "typescript": "^4.6.3",
     "vite": "^2.9.9"
   },
-  "description": "A Mind AR Modules for React",
+  "description": "An Frame Component for React",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/krsbx/aframe-react-component.git"
   },
   "keywords": [
     "react",
-    "augmented-reality",
-    "mind-ar"
+    "aframe"
   ],
   "author": "krsbx",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/krsbx/aframe-react-component/issues"
   },
+  "files": ["dist"],
   "lint-staged": {
     "*.{ts,tsx}": "eslint --cache --fix",
     "*.{ts,tsx,scss,md}": "prettier --write"
