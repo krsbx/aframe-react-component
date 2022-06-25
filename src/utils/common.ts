@@ -78,13 +78,15 @@ export const getAnimations = (props: Animation | Animation[]): Record<string, st
  * @param props
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const convertObjectToString = (props: Record<any, any>) => {
+export const convertObjectToString = (props: Record<any, any>): Record<any, any> => {
   _.forEach(props, (value, key) => {
     // Join all objects into a single values
     if (_.isObject(value)) {
       props[key] = _.values(value).join(' ');
     }
   });
+
+  return props;
 };
 
 /**
