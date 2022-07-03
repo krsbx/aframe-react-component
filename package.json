@@ -1,6 +1,6 @@
 {
   "name": "aframe-react-component",
-  "version": "0.1.0beta2a",
+  "version": "0.1.0-beta2b",
   "main": "dist/index.js",
   "scripts": {
     "dev": "vite",
