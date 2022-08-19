@@ -2,9 +2,9 @@ import _ from 'lodash';
 import React, { useEffect, useRef } from 'react';
 import { Scene as AScene } from 'aframe';
 import { convertObjectToString, mergeRefs } from '../utils/common';
-import { Scene as _Scene } from '../utils/interface';
+import { Scene as SceneProps } from '../utils/interface';
 
-const Scene = React.forwardRef<AScene, _Scene>(({ children, ...props }, ref) => {
+const Scene = React.forwardRef<AScene, SceneProps>(({ children, ...props }, ref) => {
   const { vrModeUI, orientationUI, colorSpace, ...rest } = props;
   const sceneRef = useRef<AScene>(null);
 
@@ -29,5 +29,7 @@ const Scene = React.forwardRef<AScene, _Scene>(({ children, ...props }, ref) => 
     children
   );
 });
+
+Scene.displayName = 'Scene';
 
 export default Scene;

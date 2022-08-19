@@ -6,4 +6,6 @@ const Video = React.forwardRef<ANode, VideoAsset>(({ ...props }, ref) =>
   React.createElement('video', { ...props, ref })
 );
 
+Video.displayName = 'VideoAsset';
+
 export default Video;
