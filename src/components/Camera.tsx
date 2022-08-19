@@ -1,9 +1,9 @@
 import React from 'react';
 import { AEntity } from 'aframe';
 import { convertObjectToString } from '../utils/common';
-import { Camera as _Camera } from '../utils/interface';
+import { Camera as CameraProps } from '../utils/interface';
 
-const Camera = React.forwardRef<typeof AEntity, _Camera>(
+const Camera = React.forwardRef<typeof AEntity, CameraProps>(
   ({ 'look-controls': lookControls, active, ...props }, ref) =>
     React.createElement('a-camera', {
       ...convertObjectToString(props),
@@ -12,5 +12,7 @@ const Camera = React.forwardRef<typeof AEntity, _Camera>(
       ref,
     })
 );
+
+Camera.displayName = 'Camera';
 
 export default Camera;

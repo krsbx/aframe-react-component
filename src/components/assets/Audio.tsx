@@ -6,4 +6,6 @@ const Audio = React.forwardRef<ANode, AudioAsset>(({ ...props }, ref) =>
   React.createElement('audio', { ...props, ref })
 );
 
+Audio.displayName = 'AudioAsset';
+
 export default Audio;

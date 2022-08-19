@@ -1,10 +1,10 @@
 {
   "name": "aframe-react-component",
-  "version": "0.1.0-beta2b",
+  "version": "0.1.1",
   "main": "dist/index.js",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build:vite": "tsc && vite build",
     "build:prod": "tsc --project tsconfig.build.json",
     "preview": "vite preview",
     "prepare": "husky install"
@@ -14,7 +14,7 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
-  "dependencies":{
+  "dependencies": {
     "lodash": "^4.17.21"
   },
   "devDependencies": {
@@ -50,7 +50,9 @@
   "bugs": {
     "url": "https://github.com/krsbx/aframe-react-component/issues"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "lint-staged": {
     "*.{ts,tsx}": "eslint --cache --fix",
     "*.{ts,tsx,scss,md}": "prettier --write"

@@ -1,3 +1,5 @@
+import 'aframe';
+
 export { Assets, Audio as AudioAsset, Item, Video as VideoAsset } from './components/assets';
 export {
   Box,
